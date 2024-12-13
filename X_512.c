@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdint.h>
+#include "striborg.h"
 
 
 //ГОСТ 34.11-2018 Пункт 6 преобразование X[K](m)

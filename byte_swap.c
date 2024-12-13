@@ -1,8 +1,8 @@
-#include <stdio.h>
+#include "striborg.h"
 
 //ГОСТ 34.11-2018  Пункт 5.3 Перестановка байт
 
-unsigned char byte_swap(unsigned char input_S_64){
+uint8_t byte_swap(uint8_t input_S_64){
     
     // I Реализация подстановки с помощью массива значений.
 	/*unsigned char t[] = {

@@ -40,6 +40,9 @@ L_512.o: L_512.c
 uint8_64.o: uint8_64.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
+uint64_8.o: uint64_8.c
+	$(CC) $(CFLAGS) $(ODIR)$@ $<
+
 print_uint64.o: print_uint64.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
@@ -52,7 +55,7 @@ test_pi_reflection: pi_reflection.o
 test_byte_swap: byte_swap.o 
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
-test_linear_trans: linear_trans.o print_uint64.o
+test_linear_trans: linear_trans.o uint8_64.o uint64_8.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
 test_X_512: X_512.o
@@ -68,4 +71,7 @@ test_L_512: L_512.o linear_trans.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
 test_uint8_64: uint8_64.o print_uint64.o 
+	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
+
+test_uint64_8: uint64_8.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c

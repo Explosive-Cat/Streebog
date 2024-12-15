@@ -5,11 +5,12 @@ int print_uint64(uint64_t b); //удалить по окончании разр�
 int X_512(uint8_t K[],  uint8_t m[]);
 int S_512(uint8_t  a[]);
 int P_512(uint8_t  a[]);
+int L_512(uint8_t  a[]);
+int linear_trans(uint8_t a_in[]);
+int uint64_8(uint64_t A, uint8_t a_in[]);
 uint8_t pi_reflection(uint8_t input_V_8);
 uint8_t byte_swap(uint8_t input_S_64);
-uint64_t linear_trans(uint8_t a_in[]);
 uint64_t uint8_64(uint8_t a_in[]);
-int uint64_8(uint64_t A, uint8_t a_in[]);
 
 /*
 uint8_t C_1[] ={0xb1, 0x08, 0x5b, 0xda, 0x1e, 0xca, 0xda, 0xe9, 0xeb, 0xcb, 0x2f, 0x81, 0xc0, 0x65, 0x7c, 0x1f,

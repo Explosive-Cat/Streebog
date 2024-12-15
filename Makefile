@@ -67,7 +67,7 @@ test_S_512: S_512.o pi_reflection.o
 test_P_512: P_512.o byte_swap.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
-test_L_512: L_512.o linear_trans.o
+test_L_512: L_512.o linear_trans.o uint8_64.o uint64_8.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
 test_uint8_64: uint8_64.o print_uint64.o 

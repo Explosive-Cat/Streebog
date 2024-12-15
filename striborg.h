@@ -6,6 +6,7 @@ int X_512(uint8_t K[],  uint8_t m[]);
 int S_512(uint8_t  a[]);
 int P_512(uint8_t  a[]);
 int L_512(uint8_t  a[]);
+int sum_512(uint8_t a[], uint8_t b[]);
 int linear_trans(uint8_t a_in[]);
 int uint64_8(uint64_t A, uint8_t a_in[]);
 uint8_t pi_reflection(uint8_t input_V_8);

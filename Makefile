@@ -37,6 +37,9 @@ S_512.o: S_512.c
 L_512.o: L_512.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
+sum_512.o: sum_512.c
+	$(CC) $(CFLAGS) $(ODIR)$@ $<
+
 uint8_64.o: uint8_64.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
@@ -65,6 +68,9 @@ test_S_512: S_512.o pi_reflection.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
 test_P_512: P_512.o byte_swap.o
+	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
+
+test_sum_512: sum_512.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
 test_L_512: L_512.o linear_trans.o uint8_64.o uint64_8.o

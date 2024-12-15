@@ -1,4 +1,4 @@
-#include "striborg.h"
+#include "stribog.h"
 
 //ГОСТ 34.11-2018  Пункт 5.3 Перестановка байт
 

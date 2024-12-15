@@ -1,9 +1,9 @@
-#include "striborg.h"
+#include "stribog.h"
 
 //ГОСТ 34.11-2018 Пункт 6 преобразование X[K](m)
 //Принимает на вход два массива по 64 8-битных чисел и производит побитовый XOR этих чисел
 
-int X_512(uint8_t* K, uint8_t* m){
+int X_512(uint8_t K[], uint8_t m[]){
     int i;
     for(i=0; i<64; i++){
         m[i]^=K[i];

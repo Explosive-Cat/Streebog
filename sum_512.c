@@ -1,4 +1,4 @@
-#include "striborg.h"
+#include "stribog.h"
 
 int sum_512(uint8_t a[], uint8_t b[]){
     uint16_t c, C_flag=0;

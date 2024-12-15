@@ -1,4 +1,4 @@
-#include "striborg.h"
+#include "stribog.h"
 
 uint64_t uint8_64(uint8_t a_in[]){
 

@@ -2,11 +2,14 @@
 #include <stdio.h>
 
 int print_uint64(uint64_t b); //удалить по окончании разработки
+int print_512(uint8_t a[]);
 int X_512(uint8_t K[],  uint8_t m[]);
 int S_512(uint8_t  a[]);
 int P_512(uint8_t  a[]);
 int L_512(uint8_t  a[]);
 int LPSX(uint8_t K[], uint8_t m[]);
+int E_512( uint8_t h[], uint8_t N[], uint8_t m[]);
+int G_512(uint8_t h[], uint8_t N[], uint8_t m[]);
 int sum_512(uint8_t a[], uint8_t b[]);
 int linear_trans(uint8_t a_in[]);
 int uint64_8(uint64_t A, uint8_t a_in[]);

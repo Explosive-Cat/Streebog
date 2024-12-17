@@ -9,10 +9,10 @@ vpath %.o $(ODIR)
 vpath test%.o $(TDIR)
 vpath test%.c $(TDIR)
 
-all:
-	echo who are you
-	echo nothing to compile
-
+all:	STREEBOG.c G_512.o E_512.o LPSX.o X_512.o S_512.o P_512.o \
+		L_512.o pi_reflection.o byte_swap.o linear_trans.o \
+		uint64_8.o uint8_64.o print_512.o sum_512n.o sum_512.o
+		$(CC) $(OFLAGS) STREEBOG $^
 
 #_______________________________objects
 
@@ -38,6 +38,9 @@ L_512.o: L_512.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
 sum_512.o: sum_512.c
+	$(CC) $(CFLAGS) $(ODIR)$@ $<
+
+sum_512n.o: sum_512n.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
 uint8_64.o: uint8_64.c

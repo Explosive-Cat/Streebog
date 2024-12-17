@@ -1,7 +1,7 @@
 #include "stribog.h"
 
 int main(int argc, uint8_t* argv[]){
-    
+
     uint8_t IV[64];     //_!!Надо_Добавить разные значения в разных режимах
     uint8_t h[64];
     uint8_t N[64];
@@ -10,9 +10,6 @@ int main(int argc, uint8_t* argv[]){
     uint8_t V_0[64];
     long sizeM;
     int i;
-    
-    
-
 
     //__Этап_1__присваивание_начальных_значений_//
     for(i=0; i<64; i++){                        //
@@ -22,6 +19,7 @@ int main(int argc, uint8_t* argv[]){
         SUM[i]=0;                               //_Шаг_1.3
         V_0[i]=0;                               //
     }//_________________________________________//
+
 
     //__Открываем_файл_с_хешируемым_сообщением__//
     FILE* M = fopen(argv[1], "rb");             //
@@ -36,7 +34,10 @@ int main(int argc, uint8_t* argv[]){
                                                 //
         for(i=0; i<64; i++){                    //_Шаг_2.2
             m[i]=fgetc(M);                      //
-            if(m[i] == EOF) printf("\nEND OF FILE, you, stupid idiot in I=%d, sizeM=%d", i, sizeM); 
+            if(m[i] == EOF)                     //
+                printf("\nEND OF FILE");        //
+                printf("\nUnread message size");//
+                printf("sizeM=%d", sizeM-i);    //
         }                                       //
                                                 //
         G_512(h, N, m);                         //_Шаг_2.3
@@ -49,7 +50,7 @@ int main(int argc, uint8_t* argv[]){
     }//_________________________________________//_Шаг_2.7
 
     //__Этап_3__Хешируем_последний_неполный_блок//
-    if(sizeM>0 && sizeM<64){                    //_Шаг_3.1
+    if(sizeM>=0 && sizeM<64){                   //_Шаг_3.1
         fseek(M, -sizeM, SEEK_CUR);             //
         for(i=0; i<64; i++){                    //
             if(i<63-sizeM){                     //
@@ -67,6 +68,7 @@ int main(int argc, uint8_t* argv[]){
     sum_512(SUM, m);                            //_Шаг_3.4
     G_512(h, V_0, N);                           //_Шаг_3.5
     G_512(h, V_0, SUM);                         //_Шаг_3.6
+    printf("\nHash(%s)=", argv[1]);             //
     print_512(h);                               //_Шаг_3.7
     //__________________________________________//
     fclose(M);

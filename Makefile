@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -c -o
-OFLAGS = -o
+CFLAGS = -c -g3 -o
+OFLAGS = -g3 -o
 
 
 ODIR = ./objects/
@@ -9,10 +9,10 @@ vpath %.o $(ODIR)
 vpath test%.o $(TDIR)
 vpath test%.c $(TDIR)
 
-all:	STREEBOG.c G_512.o E_512.o LPSX.o X_512.o S_512.o P_512.o \
+all:	G_512.o E_512.o LPSX.o X_512.o S_512.o P_512.o \
 		L_512.o pi_reflection.o byte_swap.o linear_trans.o \
 		uint64_8.o uint8_64.o print_512.o sum_512n.o sum_512.o
-		$(CC) $(OFLAGS) STREEBOG $^
+		$(CC) $(OFLAGS) STREEBOG  STREEBOG.c $^
 
 #_______________________________objects
 
@@ -105,3 +105,6 @@ test_E_512: E_512.o LPSX.o X_512.o S_512.o P_512.o L_512.o pi_reflection.o byte_
 
 test_G_512: G_512.o E_512.o LPSX.o X_512.o S_512.o P_512.o L_512.o pi_reflection.o byte_swap.o linear_trans.o uint64_8.o uint8_64.o print_512.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
+
+clean:
+	rm ./objects/%.o

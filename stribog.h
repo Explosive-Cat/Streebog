@@ -1,8 +1,11 @@
 #include <stdint.h>
 #include <stdio.h>
+#include <errno.h>
+#include <string.h>
 
-int print_uint64(uint64_t b); //удалить по окончании разработки
+int print_uint64(uint64_t b);
 int print_512(uint8_t a[]);
+int print_256(uint8_t a[]);
 int X_512(uint8_t K[],  uint8_t m[]);
 int S_512(uint8_t  a[]);
 int P_512(uint8_t  a[]);

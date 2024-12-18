@@ -11,7 +11,7 @@ vpath test%.c $(TDIR)
 
 all:	G_512.o E_512.o LPSX.o X_512.o S_512.o P_512.o \
 		L_512.o pi_reflection.o byte_swap.o linear_trans.o \
-		uint64_8.o uint8_64.o print_512.o sum_512n.o sum_512.o
+		uint64_8.o uint8_64.o print_512.o sum_512n.o sum_512.o print_256.o
 		$(CC) $(OFLAGS) STREEBOG  STREEBOG.c $^
 
 #_______________________________objects
@@ -53,6 +53,9 @@ print_uint64.o: print_uint64.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
 print_512.o: print_512.c
+	$(CC) $(CFLAGS) $(ODIR)$@ $<
+
+print_256.o: print_256.c
 	$(CC) $(CFLAGS) $(ODIR)$@ $<
 
 LPSX.o: LPSX.c

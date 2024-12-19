@@ -1,4 +1,4 @@
-#include "streebog.h"
+#include "stribog.h"
 
 int G_512(uint8_t h[], uint8_t N[], uint8_t m[]){
 

@@ -1,4 +1,4 @@
-#include "streebog.h"
+#include "stribog.h"
 
 int uint64_8(uint64_t A, uint8_t a_in[]){
 

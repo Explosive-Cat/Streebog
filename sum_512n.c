@@ -1,4 +1,4 @@
-#include "streebog.h"
+#include "stribog.h"
 
 int sum_512n(uint8_t a[], uint16_t n){
     uint16_t c, C_flag=0;

@@ -1,4 +1,4 @@
-#include "stribog.h"
+#include "streebog.h"
 
 int main(int argc, uint8_t* argv[]){
 

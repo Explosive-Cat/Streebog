@@ -1,7 +1,22 @@
+#ifndef STDINT
+#define STDINT
 #include <stdint.h>
+#endif
+
+#ifndef STDIO
+#define STDIO
 #include <stdio.h>
+#endif
+
+#ifndef ERRNO
+#define ERRNO
 #include <errno.h>
+#endif
+
+#ifndef STRING
+#define STRING
 #include <string.h>
+#endif
 
 int print_uint64(uint64_t b);
 int print_512(uint8_t a[]);

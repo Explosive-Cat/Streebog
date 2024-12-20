@@ -3,70 +3,24 @@ CFLAGS = -c -g3 -o
 OFLAGS = -g3 -o
 
 
-ODIR = ./objects/
+SRC = ./src/
+OBJ = ./obj/
 TDIR = ./tests/
-vpath %.o $(ODIR)
+
+TARGET = STREEBOG
+vpath %.c $(SRC)
+vpath %.o $(OBJ)
 vpath test%.o $(TDIR)
 vpath test%.c $(TDIR)
 
-all:	G_512.o E_512.o LPSX.o X_512.o S_512.o P_512.o \
-		L_512.o pi_reflection.o byte_swap.o linear_trans.o \
-		uint64_8.o uint8_64.o print_512.o sum_512n.o sum_512.o print_256.o
-		$(CC) $(OFLAGS) STREEBOG  STREEBOG.c $^
+all:	print_256.o print_512.o uint8_64.o uint64_8.o  sum_512.o sum_512n.o linear_trans.o byte_swap.o pi_reflection.o X_512.o S_512.o P_512.o L_512.o LPSX.o E_512.o  G_512.o 
+		$(CC)  $(OFLAGS) $(TARGET) $(SRC)$(TARGET).c $^
+
 
 #_______________________________objects
 
-pi_reflection.o: pi_reflection.c
-	$(CC) $(CFLAGS)  $(ODIR)$@ $<
-
-byte_swap.o: byte_swap.c
-	$(CC) $(CFLAGS)  $(ODIR)$@ $<
-
-linear_trans.o: linear_trans.c
-	$(CC) $(CFLAGS)  $(ODIR)$@ $<
-
-X_512.o: X_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-P_512.o: P_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-	
-S_512.o: S_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-L_512.o: L_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-sum_512.o: sum_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-sum_512n.o: sum_512n.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-uint8_64.o: uint8_64.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-uint64_8.o: uint64_8.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-print_uint64.o: print_uint64.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-print_512.o: print_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-print_256.o: print_256.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-LPSX.o: LPSX.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-E_512.o: E_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
-G_512.o: G_512.c
-	$(CC) $(CFLAGS) $(ODIR)$@ $<
-
+%.o: %.c
+	$(CC) $(CFLAGS)  $(OBJ)$@ $<
 
 #_____________________________tests
 
@@ -109,5 +63,3 @@ test_E_512: E_512.o LPSX.o X_512.o S_512.o P_512.o L_512.o pi_reflection.o byte_
 test_G_512: G_512.o E_512.o LPSX.o X_512.o S_512.o P_512.o L_512.o pi_reflection.o byte_swap.o linear_trans.o uint64_8.o uint8_64.o print_512.o
 	$(CC) $(OFLAGS)  $(TDIR)$@ $^ $(TDIR)$@.c
 
-clean:
-	rm ./objects/%.o
